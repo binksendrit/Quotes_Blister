@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="A small interactive collection of heart messages.">
+    <title>Hearts, for you</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="scene">
+      <h1 class="visually-hidden">Hearts, for you</h1>
+      <section class="blister" aria-label="Twelve heart tablets">
+        <div class="blister__grid" id="pill-grid"></div>
+      </section>
+    </main>
+
+    <button class="reset" id="reset" type="button" aria-label="Reset all tablets">Reset</button>
+
+    <div class="message-overlay" id="message-overlay" role="dialog" aria-modal="true" aria-label="Heart message" hidden>
+      <div class="message-panel">
+        <button class="message-panel__close" id="message-close" type="button" aria-label="Close message">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19" /></svg>
+        </button>
+        <svg class="message-panel__heart" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 27.2 5.7 17.1a7.1 7.1 0 0 1 10.3-9.8 7.1 7.1 0 0 1 10.3 9.8Z" />
+        </svg>
+        <p id="message-text"></p>
+      </div>
+    </div>
+  </body>
+</html>
