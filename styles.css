@@ -323,9 +323,48 @@ button { font: inherit; -webkit-tap-highlight-color: transparent; }
   from { opacity: 0; transform: translateY(15px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-@media (max-width: 360px) {
-  .blister { width: min(84vw, calc(67dvh - 26px)); padding: 16px; }
-  .blister__grid { column-gap: 9px; }
+@media (max-width: 47.99rem) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scene {
+    flex: 1 0 auto;
+    min-height: 0;
+    padding-block: max(24px, env(safe-area-inset-top)) 18px;
+  }
+
+  .blister {
+    --pill-size: min(calc(84vw / 3.65), 96px);
+    --column-gap: calc(var(--pill-size) / 8);
+    --row-gap: calc(var(--pill-size) / 5);
+    --padding-x: calc(var(--pill-size) / 5);
+    --padding-y: calc(var(--pill-size) * 0.38);
+    width: max-content;
+    max-width: 100%;
+    aspect-ratio: auto;
+    padding: var(--padding-y) var(--padding-x);
+  }
+
+  .blister__grid {
+    width: max-content;
+    height: auto;
+    grid-template-columns: repeat(3, var(--pill-size));
+    grid-template-rows: repeat(4, var(--pill-size));
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+  }
+
+  .cavity {
+    width: var(--pill-size);
+  }
+
+  .reset {
+    position: static;
+    align-self: flex-end;
+    margin: 0 max(16px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom));
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
